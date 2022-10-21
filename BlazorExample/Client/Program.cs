@@ -11,15 +11,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddMsalAuthentication(options =>
-{
-    options.ProviderOptions.Authentication.Authority = "https://login.microsoftonline.com/";
-    options.ProviderOptions.Authentication.ClientId = "ClientID";
-    options.ProviderOptions.Authentication.ValidateAuthority = false;
-    //builder.Configuration.Bind("AzureAd", options.ProviderOptions.Authentication);
-
-}).AddAccountClaimsPrincipalFactory<AppClaimsPrincipalFactory<RemoteUserAccount>>();
-
 builder.Services.AddAuthorizationCore();
 builder.Services.AddOptions();
 

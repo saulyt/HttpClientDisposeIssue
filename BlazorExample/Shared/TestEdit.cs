@@ -12,7 +12,7 @@ namespace BlazorExample.Shared
     {
         [Create]
         [RunLocal]
-        private void Create()
+        private void Create([Inject] IDataPortal<UserEdit> userEdit)
         {
            
         }
